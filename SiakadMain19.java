@@ -12,13 +12,13 @@ public class SiakadMain19 {
         int menu;
         do {
             System.out.println("\n=== MENU ===");
-            System.out.println("1. Input Data Mahasiswa + Penilaian");
+            System.out.println("1. Input Data Mahasiswa,Matkul, dan Nilai");
             System.out.println("2. Tampilkan Daftar Mahasiswa");
             System.out.println("3. Tampilkan Daftar Mata Kuliah");
             System.out.println("4. Tampilkan Penilaian");
-            System.out.println("5. Urutkan Mahasiswa by Nama");
-            System.out.println("6. Urutkan Penilaian by Nilai Akhir");
-            System.out.println("7. Cari Mahasiswa by Nama");
+            System.out.println("5. Urutkan Mahasiswa berdasarkan Nama");
+            System.out.println("6. Urutkan Penilaian berdasarkan Nilai Akhir");
+            System.out.println("7. Cari Mahasiswa berdasarkan Nama");
             System.out.println("0. Keluar");
             System.out.print("Pilih Menu: ");
             menu = input19.nextInt();
@@ -26,7 +26,7 @@ public class SiakadMain19 {
 
             switch (menu) {
                 case 1:
-                    menuInput();
+                    menuInput19();
                     break;
                 case 2:
                     data19.tampilMhs19();
@@ -47,7 +47,7 @@ public class SiakadMain19 {
                     menuSearch19();
                     break;
                 case 0:
-                    System.out.println("Bye bro");
+                    System.out.println("Terima Kasih!");
                     break;
                 default:
                     System.out.println("Pilihan gak valid");
@@ -56,33 +56,33 @@ public class SiakadMain19 {
         input19.close();
     }
 
-    static void menuInput() {
+    static void menuInput19() {
         while (true) {
-            System.out.print("Masukkan Nama Mahasiswa: "); String nama = input19.nextLine();
-            System.out.print("Masukkan NIM: "); String nim = input19.nextLine();
-            System.out.print("Masukkan Prodi: "); String prodi = input19.nextLine();
+            System.out.print("Masukkan Nama Mahasiswa : "); String nama = input19.nextLine();
+            System.out.print("Masukkan NIM : "); String nim = input19.nextLine();
+            System.out.print("Masukkan Prodi : "); String prodi = input19.nextLine();
             Mahasiswa19 m = new Mahasiswa19(nama, nim, prodi);
             data19.tambahMHS19(m);
 
             MataKuliah19 mk;
             while (true) {
                 data19.tampilMk19();
-                System.out.print("Pilih Kode MK (e.g. BD19): ");
+                System.out.print("Pilih Kode MK : ");
                 String kode = input19.nextLine();
                 mk = data19.cariMatkuldariKode19(kode);
                 if (mk != null) break;
                 System.out.println("Kode MK tidak valid. Coba lagi!");
             }
 
-            System.out.print("Nilai Tugas: "); double tugas = input19.nextDouble();
-            System.out.print("Nilai UTS: "); double uts = input19.nextDouble();
-            System.out.print("Nilai UAS: "); double uas = input19.nextDouble();
+            System.out.print("Nilai Tugas : "); double tugas = input19.nextDouble();
+            System.out.print("Nilai UTS : "); double uts = input19.nextDouble();
+            System.out.print("Nilai UAS : "); double uas = input19.nextDouble();
             input19.nextLine();
             data19.tambahPenilaian19(new Penilaian19(m, mk, tugas, uts, uas));
 
             String lagi;
             while (true) {
-                System.out.print("Tambah data lagi? (Y/N): ");
+                System.out.print("Tambah data lagi? (Y/N) : ");
                 lagi = input19.nextLine();
                 if (lagi.equalsIgnoreCase("Y")) break;
                 if (lagi.equalsIgnoreCase("N")) return;
@@ -92,7 +92,10 @@ public class SiakadMain19 {
     }
 
     static void menuSortNama19() {
-        System.out.print("1. ASC  2. DESC: ");
+        System.out.print("Pilih Menu tipe Sorting ");
+        System.out.print("1. ASC ");
+        System.out.print("1. ASC ");
+        System.out.print("Silahkan :");
         int t = input19.nextInt();
         input19.nextLine();
         data19.sortMhsdariNama19(t == 1);
@@ -100,7 +103,10 @@ public class SiakadMain19 {
     }
 
     static void menuSortNilai19() {
-        System.out.print("1. ASC  2. DESC: ");
+        System.out.print("Pilih Menu tipe Sorting ");
+        System.out.print("1. ASC ");
+        System.out.print("1. ASC ");
+        System.out.print("Silahkan :");
         int t = input19.nextInt();
         input19.nextLine();
         data19.sortPenDariNilai19(t == 1);
@@ -108,7 +114,7 @@ public class SiakadMain19 {
     }
 
     static void menuSearch19() {
-        System.out.print("Masukkan Nama yang dicari: ");
+        System.out.print("Masukkan Nama yang dicari : ");
         String target = input19.nextLine();
         int idx = data19.binarySearchMhs19(target);
         if (idx >= 0)
