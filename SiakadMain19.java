@@ -1,13 +1,13 @@
 import java.util.*;
 //Pranata
-public class SiakadMain {
+public class SiakadMain19 {
     static Scanner input19 = new Scanner(System.in);
-    static DataSiakad data19 = new DataSiakad();
+    static DataSiakad19 data19 = new DataSiakad19();
 
     public static void main(String[] args) {
-        data19.tambah(new MataKuliah("BD19", "Basis Data", 3));
-        data19.tambah(new MataKuliah("ALSD19", "ALSD", 3));
-        data19.tambah(new MataKuliah("MATL19", "Matematika", 2));
+        data19.tambahMK19(new MataKuliah19("BD19", "Basis Data", 3));
+        data19.tambahMK19(new MataKuliah19("ALSD19", "ALSD", 3));
+        data19.tambahMK19(new MataKuliah19("MATL19", "Matematika", 2));
 
         int menu;
         do {
@@ -29,22 +29,22 @@ public class SiakadMain {
                     menuInput();
                     break;
                 case 2:
-                    data19.tampilMhs();
+                    data19.tampilMhs19();
                     break;
                 case 3:
-                    data19.tampilMk();
+                    data19.tampilMk19();
                     break;
                 case 4:
-                    data19.tampilPenilaian();
+                    data19.tampilPenilaian19();
                     break;
                 case 5:
-                    menuSortName();
+                    menuSortNama19();
                     break;
                 case 6:
-                    menuSortNilai();
+                    menuSortNilai19();
                     break;
                 case 7:
-                    menuSearch();
+                    menuSearch19();
                     break;
                 case 0:
                     System.out.println("Bye bro");
@@ -61,15 +61,15 @@ public class SiakadMain {
             System.out.print("Masukkan Nama Mahasiswa: "); String nama = input19.nextLine();
             System.out.print("Masukkan NIM: "); String nim = input19.nextLine();
             System.out.print("Masukkan Prodi: "); String prodi = input19.nextLine();
-            Mahasiswa m = new Mahasiswa(nama, nim, prodi);
-            data19.tambah(m);
+            Mahasiswa19 m = new Mahasiswa19(nama, nim, prodi);
+            data19.tambahMHS19(m);
 
-            MataKuliah mk;
+            MataKuliah19 mk;
             while (true) {
-                data19.tampilMk();
+                data19.tampilMk19();
                 System.out.print("Pilih Kode MK (e.g. BD19): ");
                 String kode = input19.nextLine();
-                mk = data19.cariMatkulByKode(kode);
+                mk = data19.cariMatkuldariKode19(kode);
                 if (mk != null) break;
                 System.out.println("Kode MK tidak valid. Coba lagi!");
             }
@@ -78,7 +78,7 @@ public class SiakadMain {
             System.out.print("Nilai UTS: "); double uts = input19.nextDouble();
             System.out.print("Nilai UAS: "); double uas = input19.nextDouble();
             input19.nextLine();
-            data19.tambah(new Penilaian(m, mk, tugas, uts, uas));
+            data19.tambahPenilaian19(new Penilaian19(m, mk, tugas, uts, uas));
 
             String lagi;
             while (true) {
@@ -91,26 +91,26 @@ public class SiakadMain {
         }
     }
 
-    static void menuSortName() {
+    static void menuSortNama19() {
         System.out.print("1. ASC  2. DESC: ");
         int t = input19.nextInt();
         input19.nextLine();
-        data19.sortMhsByName(t == 1);
-        data19.tampilMhs();
+        data19.sortMhsdariNama19(t == 1);
+        data19.tampilMhs19();
     }
 
-    static void menuSortNilai() {
+    static void menuSortNilai19() {
         System.out.print("1. ASC  2. DESC: ");
         int t = input19.nextInt();
         input19.nextLine();
-        data19.sortPenByNilai(t == 1);
-        data19.tampilPenilaian();
+        data19.sortPenDariNilai19(t == 1);
+        data19.tampilPenilaian19();
     }
 
-    static void menuSearch() {
+    static void menuSearch19() {
         System.out.print("Masukkan Nama yang dicari: ");
         String target = input19.nextLine();
-        int idx = data19.binarySearchMhs(target);
+        int idx = data19.binarySearchMhs19(target);
         if (idx >= 0)
             System.out.println("Data ditemukan di index " + idx);
         else
