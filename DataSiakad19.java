@@ -19,9 +19,14 @@ public class DataSiakad19 {
     }
 
     void tampilMhs19() {
-        System.out.println("\n=== Daftar Mahasiswa ===");
-        for (Mahasiswa19 m : dataMhs19)
-            m.tampilMahasiswa19();
+        System.out.println("\n=== Daftar Mahasiswa (Unik) ===");
+        Set<String> seen = new HashSet<>();
+        for (Mahasiswa19 m : dataMhs19) {
+            if (!seen.contains(m.nama19.toLowerCase())) {
+                m.tampilMahasiswa19();
+                seen.add(m.nama19.toLowerCase());
+            }
+        }
     }
 
     void tampilMk19() {

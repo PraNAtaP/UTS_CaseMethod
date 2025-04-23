@@ -5,7 +5,6 @@ public class SiakadMain19 {
     static DataSiakad19 data19 = new DataSiakad19();
 
     public static void main(String[] args) {
-        data19.tambahMK19(new MataKuliah19("BD19", "Basis Data", 3));
         data19.tambahMK19(new MataKuliah19("ALSD19", "ALSD", 3));
         data19.tambahMK19(new MataKuliah19("MATL19", "Matematika", 2));
 
@@ -92,9 +91,9 @@ public class SiakadMain19 {
     }
 
     static void menuSortNama19() {
-        System.out.print("Pilih Menu tipe Sorting ");
-        System.out.print("1. ASC ");
-        System.out.print("1. ASC ");
+        System.out.println("Pilih Menu tipe Sorting ");
+        System.out.println("1. ASC ");
+        System.out.println("2. DSC ");
         System.out.print("Silahkan :");
         int t = input19.nextInt();
         input19.nextLine();
@@ -103,9 +102,9 @@ public class SiakadMain19 {
     }
 
     static void menuSortNilai19() {
-        System.out.print("Pilih Menu tipe Sorting ");
-        System.out.print("1. ASC ");
-        System.out.print("1. ASC ");
+        System.out.println("Pilih Menu tipe Sorting ");
+        System.out.println("1. ASC ");
+        System.out.println("2. DSC ");
         System.out.print("Silahkan :");
         int t = input19.nextInt();
         input19.nextLine();
